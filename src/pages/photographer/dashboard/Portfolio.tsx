@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,14 +9,14 @@ import { Camera, Upload } from "lucide-react";
 const Portfolio = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: "Jessica Smith",
-    title: "Professional Wedding & Portrait Photographer",
-    location: "New York, NY",
-    bio: "Passionate photographer with over 7 years of experience specializing in weddings and portraits. I focus on capturing authentic moments and emotions in a natural, storytelling style. My approach combines candid photography with gentle direction to create images that feel both genuine and polished.",
-    email: "jessica@clickseekers.com",
-    phone: "(555) 123-4567",
-    website: "www.jessicasmithphotography.com",
-    instagram: "@jessicasmith.photo",
+    name: "Abishekh Joshi",
+    title: "Aspiring Photographer | IT Student",
+    location: "Nepal",
+    bio: "I am a passionate photographer with a love for nature photography. I specialize in capturing the beauty of landscapes and the authenticity of natural moments. As an IT student, I aim to merge technology and photography for unique creative expressions.",
+    email: "joshiabishek987@gmail.com",
+    phone: "+977 9815025634",
+    website: "www.abishekjoshi.com",
+    instagram: "@abishek_joshi_",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,7 +53,7 @@ const Portfolio = () => {
         <div className="md:w-1/3">
           <div className="relative w-40 h-40 mx-auto mb-4">
             <img 
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" 
+              src="/src/Images/IMG_3103.jpg" 
               alt="Profile"
               className="w-full h-full rounded-full object-cover"
             />

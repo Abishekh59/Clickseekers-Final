@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -13,35 +12,34 @@ import {
 import { toast } from "sonner";
 import { Calendar, Check, X } from "lucide-react";
 
-// Example booking data
 const initialBookings = [
   {
     id: 1,
-    clientName: "Michael & Sarah Johnson",
+    clientName: "Lucy  & Bina", 
     service: "Wedding Photography",
     date: "2023-09-15",
     time: "10:00 AM - 8:00 PM",
-    location: "Grand Plaza Hotel, New York",
+    location: "Grand Plaza Hotel, Kathmandu",
     status: "confirmed",
     amount: 2500,
   },
   {
     id: 2,
-    clientName: "Emily Wilson",
+    clientName: "Sarika Thapa",
     service: "Portrait Session",
     date: "2023-08-28",
     time: "2:00 PM - 3:30 PM",
-    location: "Central Park, New York",
+    location: "Central Park, Kathmandu",
     status: "pending",
     amount: 350,
   },
   {
     id: 3,
-    clientName: "Robert Brown",
+    clientName: "Prashant KC",
     service: "Commercial Product Shoot",
     date: "2023-09-05",
     time: "9:00 AM - 1:00 PM",
-    location: "Client Studio, Brooklyn",
+    location: "Client Studio, Bhaktapur",
     status: "pending",
     amount: 800,
   },
@@ -51,7 +49,7 @@ const initialBookings = [
     service: "Family Portrait",
     date: "2023-08-20",
     time: "4:00 PM - 5:30 PM",
-    location: "Riverside Park, New York",
+    location: "Riverside Park, Kathmandu",
     status: "completed",
     amount: 450,
   },

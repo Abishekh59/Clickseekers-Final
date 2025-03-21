@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -156,23 +155,41 @@ const Contact = () => {
       <div className="w-1/3 pl-8 border-l">
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-4">Follow me on social media</h2>
-          <p className="mb-1">Reach out to us for inquiries and bookings.</p>
-          <p className="mb-1">infinitystudioinfinity@gmail.com</p>
-          <p className="mb-1">CALL US FOR MORE INFORMATION</p>
+          <p className="mb-1">Reach out for inquiries and bookings.</p>
+          <p className="mb-1">joshiabishek987@gmail.com</p>
+          <p className="mb-1">CALL FOR MORE INFORMATION</p>
           <p className="mb-1">+977 9815025634</p>
-          <p className="mb-4">+977 9815999442</p>
+          <p className="mb-4">+977 9762950805</p>
           
           <div className="flex gap-4">
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a 
+              href="https://www.linkedin.com/in/abishekh-joshi-41135a2a0/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bx1vJkyCZR56ONXonkvfvcg%3D%3D" 
+              className="text-gray-700 hover:text-black" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a 
+              href="https://www.instagram.com/abishek_joshi_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+              className="text-gray-700 hover:text-black" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Instagram size={24} />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a 
+              href="https://www.facebook.com/share/1BVzX4Y1mN/" 
+              className="text-gray-700 hover:text-black" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Facebook size={24} />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a 
+              href="tel:+9779815025634" 
+              className="text-gray-700 hover:text-black"
+            >
               <Phone size={24} />
             </a>
           </div>

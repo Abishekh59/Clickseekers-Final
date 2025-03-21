@@ -1,50 +1,27 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
-// Photography styles data
+// Expanded Photography Styles Data
 const photographyStyles = [
-  {
-    id: "portrait",
-    title: "Portrait",
-    description: "Capturing the personality and essence of individuals or groups in studio or natural settings.",
-    imageUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04",
-  },
-  {
-    id: "wedding",
-    title: "Wedding",
-    description: "Documenting the special moments and emotions of wedding ceremonies and celebrations.",
-    imageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866",
-  },
-  {
-    id: "landscape",
-    title: "Landscape",
-    description: "Showcasing the beauty of natural scenery, from mountains and forests to oceans and deserts.",
-    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-  },
-  {
-    id: "commercial",
-    title: "Commercial",
-    description: "Creating compelling images for brands, products, and services for marketing and advertising.",
-    imageUrl: "https://images.unsplash.com/photo-1579398937948-598a7643b2b9",
-  },
-  {
-    id: "event",
-    title: "Event",
-    description: "Capturing the atmosphere and key moments of corporate events, concerts, and social gatherings.",
-    imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
-  },
-  {
-    id: "street",
-    title: "Street",
-    description: "Documenting everyday life, people, and urban environments in an authentic, candid style.",
-    imageUrl: "https://images.unsplash.com/photo-1473679408190-0693dd22fe6a",
-  },
+  { id: "portrait", title: "Portrait" },
+  { id: "aerial", title: "Aerial" },
+  { id: "fashion", title: "Fashion" },
+  { id: "sports", title: "Sports" },
+  { id: "fineArt", title: "Fine Art" },
+  { id: "event", title: "Event" },
+  { id: "travel", title: "Travel" },
+  { id: "landscape", title: "Landscape" },
+  { id: "wildlife", title: "Wildlife" },
+  { id: "family", title: "Family" },
+  { id: "wedding", title: "Wedding" },
+  { id: "culture", title: "Culture" },
+  { id: "nature", title: "Nature" },
+  { id: "commercial", title: "Commercial" },
+  { id: "other", title: "Other" }
 ];
 
 const StyleSelection = () => {
@@ -52,11 +29,9 @@ const StyleSelection = () => {
   const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const toggleStyle = (styleId: string) => {
-    setSelectedStyles(prev => 
-      prev.includes(styleId)
-        ? prev.filter(id => id !== styleId)
-        : [...prev, styleId]
+  const handleCheckboxChange = (styleId: string) => {
+    setSelectedStyles(prev =>
+      prev.includes(styleId) ? prev.filter(id => id !== styleId) : [...prev, styleId]
     );
   };
 
@@ -67,8 +42,6 @@ const StyleSelection = () => {
     }
 
     setIsLoading(true);
-    
-    // Simulate saving preferences (in a real app, this would call an API)
     setTimeout(() => {
       setIsLoading(false);
       navigate("/photographer/dashboard");
@@ -89,33 +62,22 @@ const StyleSelection = () => {
             when they're looking for a specific type of photography.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
             {photographyStyles.map((style) => (
-              <Card 
+              <Card
                 key={style.id}
-                className={`overflow-hidden cursor-pointer transition-all hover:shadow-md ${
-                  selectedStyles.includes(style.id) 
-                    ? 'ring-2 ring-primary ring-offset-2' 
-                    : ''
-                }`}
-                onClick={() => toggleStyle(style.id)}
+                className="flex items-center space-x-3 p-4 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="relative h-40">
-                  <img 
-                    src={style.imageUrl} 
-                    alt={style.title} 
-                    className="w-full h-full object-cover"
-                  />
-                  {selectedStyles.includes(style.id) && (
-                    <div className="absolute top-2 right-2 bg-primary text-white rounded-full p-1">
-                      <Check size={16} />
-                    </div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold mb-1">{style.title}</h3>
-                  <p className="text-sm text-gray-500">{style.description}</p>
-                </div>
+                <input
+                  type="checkbox"
+                  id={style.id}
+                  checked={selectedStyles.includes(style.id)}
+                  onChange={() => handleCheckboxChange(style.id)}
+                  className="w-5 h-5"
+                />
+                <label htmlFor={style.id} className="text-lg">
+                  {style.title}
+                </label>
               </Card>
             ))}
           </div>
