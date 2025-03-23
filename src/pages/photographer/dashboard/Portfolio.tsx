@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Camera, Upload } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const Portfolio = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "Abishekh Joshi",
     title: "Aspiring Photographer | IT Student",
@@ -27,6 +29,11 @@ const Portfolio = () => {
   const handleSave = () => {
     setIsEditing(false);
     toast.success("Portfolio information updated successfully");
+  };
+
+  const handleDeleteAccount = () => {
+    setIsDeleteModalOpen(false);
+    toast.error("Account deleted successfully");
   };
 
   return (
@@ -63,7 +70,7 @@ const Portfolio = () => {
               </button>
             )}
           </div>
-          
+
           {isEditing ? (
             <div className="space-y-4">
               <div>
@@ -175,8 +182,31 @@ const Portfolio = () => {
               )}
             </div>
           </div>
+          <br>
+          </br>
+            
+          {!isEditing && (
+            <Button variant="destructive" onClick={() => setIsDeleteModalOpen(true)}>
+              Delete Account
+            </Button>
+          )}
         </div>
       </div>
+
+      {/* Delete Account Confirmation Modal */}
+      <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
+        <DialogContent>
+          <DialogTitle>Are you sure you want to delete your account?</DialogTitle>
+          <div className="flex gap-2 justify-end mt-4">
+            <Button variant="outline" onClick={() => setIsDeleteModalOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={handleDeleteAccount}>
+              Delete
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };
